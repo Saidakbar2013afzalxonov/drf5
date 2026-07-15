@@ -1,5 +1,8 @@
 from django.urls import path
 from .views import StudentView
-urlpatterns = [
-    path("", StudentView.as_view({'get':'list'})),
-]
+from rest_framework.routers import DefaultRouter
+
+router = DefaultRouter()
+router.register('students', StudentView)
+
+urlpatterns = router.urls
